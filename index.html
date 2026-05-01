@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtualization Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1b1e26;
+            color: #fff;
+        }
+
+        /* Particle Background Styling */
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        /* Navigation Bar Styling */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #1b1e26;
+            padding: 15px 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        .navbar .logo {
+            flex: 1;
+        }
+        .navbar .logo img {
+            height: 60px; 
+            width: auto;
+        }
+        .navbar a {
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        .navbar a:hover {
+            background: linear-gradient(90deg, #ff477e, #00c6ff);
+            box-shadow: 0 4px 12px rgba(244, 244, 245, 0.4);
+        }
+        .navbar a i {
+            margin-right: 8px;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to right, #1b1e26, #0d1117);
+            color: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .hero-content {
+            flex: 1;
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.3s;
+        }
+        .hero-content h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: #ff477e;
+            background: linear-gradient(90deg, #ff477e, #00c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-content h2 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            color: #00c6ff;
+        }
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        .hero-button {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            color: #fff;
+            background: linear-gradient(90deg, #ff477e, #103742);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .hero-button:hover {
+            box-shadow: 0 4px 12px rgba(244, 247, 244, 0.4);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Image Styling */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.5s;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="logo">
+            <img src="CMH_Color.png" alt="Logo"> <!-- Replace "logo.png" with the path to your logo image -->
+        </div>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="New_VM.html"><i class="fas fa-desktop"></i> New VM</a>
+        <a href="Edit_VM.html"><i class="fas fa-cogs"></i> Edit VM</a>
+        <a href="contact.html"><i class="fas fa-address-card"></i> Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h2>Welcome To CLOUD-SPACE</h2>
+            <h1>Grade Local Virtualization Services</h1>
+            <p>Our enterprise's local services are designed to meet the needs of modern businesses. 
+                With a strong focus on performance, reliability, and flexibility, our setup provides a seamless virtualization experience that supports diverse workloads and ensures efficient resource management.</p>
+            <a href="#" class="hero-button">Order Now</a>
+        </div>
+        <div class="hero-image">
+            <img src="Desktop-As-A-Service-Remote-Desktop.png" alt="Server Illustration">
+        </div>
+    </div>
+
+    <!-- Particles.js Script -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#f8bfbf"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false
+                },
+                "size": {
+                    "value": 3,
+                    "random": true
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#d41C2C",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none"
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+</body>
+</html>
