@@ -1,0 +1,28 @@
+name: CI/CD Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs: 
+  deploy:
+    runs-on: self-hosted
+    environment: Configure ssh key server
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSHKEYFORSERVER }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_25519
+          ssh-keyscan -H ${{ secrets.IPSERVER }} >> ~/.ssh/known_hosts
+
+      - name: Run Ansible Playbook
+        run:  |
+          ansible-playbook -i inventory.ini deploy_app.yml \
+          -e "ansible_user=${{ secrets.REMOTEUSER }}" \
+          --private-key ~/ .ssh/id_ed25519
