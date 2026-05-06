@@ -5,7 +5,7 @@ on:
     branches:
       - main
 
-jobs: 
+jobs:
   deploy:
     runs-on: self-hosted
     environment: Configure ssh key server
@@ -18,11 +18,11 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSHKEYFORSERVER }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_25519
+          chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.IPSERVER }} >> ~/.ssh/known_hosts
 
       - name: Run Ansible Playbook
-        run:  |
+        run: |
           ansible-playbook -i inventory.ini deploy_app.yml \
           -e "ansible_user=${{ secrets.REMOTEUSER }}" \
-          --private-key ~/ .ssh/id_ed25519
+          --private-key ~/.ssh/id_ed25519
