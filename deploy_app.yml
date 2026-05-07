@@ -1,0 +1,27 @@
+---
+- name: ci/cd deployment
+  hosts: my_vm
+  become: true
+
+  tasks:
+    - name: 1. install git
+      apt:
+        name: git
+        state: present
+
+    - name: 2. pull latest code from github
+      git:
+        repo: 'https://github.com/mouadcloud-net/web_app.git'
+        dest: '/opt/myapp'
+        force: yes
+
+    - name: 3 .copy files to web server directory
+      copy:
+        src: '/opt/myapp/'
+        dest: '/var/www/html/'
+        remote_src: yes
+
+    - name: 4. ensure nginx is running
+      service:
+        name: nginx
+        state: restarted
